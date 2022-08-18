@@ -2,7 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Notes.MainPage">
-			 
+
+    <VerticalStackLayout>
+        <Label
+            x:Name="NotesLabel"
+            Text="Notes"/>
+        
+        <Entry 
+            x:Name="NotesEntry"
+            Placeholder="Enter your Note"/>
+
+        <Grid ColumnDefinitions="Auto, 30, Auto">
+            <Button Grid.Column="0"
+                    x:Name="SaveButton"
+                    Text="Save"
+                    Clicked="OnSaveButtonClicked" />
+            <Button Grid.Column="2"
+                    x:Name="DeleteButton"
+                    Text="Delete"
+                    Clicked="OnDeleteButtonClicked" />
+        </Grid>
+    </VerticalStackLayout>
    
  
 </ContentPage>
