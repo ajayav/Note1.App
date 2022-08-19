@@ -1,26 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Notes.MainPage">
+             xmlns:notes="clr-namespace:Notes"
+             x:Class="Notes.MainPage"
+             BackgroundColor="White">
 
-    <VerticalStackLayout>
+    <VerticalStackLayout Padding="30,60,30,30"
+                         BackgroundColor="Azure">
         <Label
             x:Name="NotesLabel"
-            Text="Notes"/>
+            Text="Notes"
+            TextColor="{x:Static Member=notes:SharedResources.FontColor}"
+            HorizontalOptions="Center"
+            FontAttributes="Bold"/>
         
         <Entry 
             x:Name="NotesEntry"
-            Placeholder="Enter your Note"/>
+            HorizontalOptions="Center"
+            FontAttributes="Bold"
+            HeightRequest="{OnPlatform 100, Android=500, iOS=500}"
+            WidthRequest="250"
+            Placeholder="Enter your Note"
+            TextColor="{x:Static Member=notes:SharedResources.FontColor}"/>
 
         <Grid ColumnDefinitions="Auto, 30, Auto">
             <Button Grid.Column="0"
                     x:Name="SaveButton"
                     Text="Save"
+                    BackgroundColor="{x:Static notes:SharedResources.BackgroudColor}"
                     Clicked="OnSaveButtonClicked" />
             <Button Grid.Column="2"
                     x:Name="DeleteButton"
                     Text="Delete"
-                    Clicked="OnDeleteButtonClicked" />
+                    Clicked="OnDeleteButtonClicked" 
+                    BackgroundColor="{x:Static notes:SharedResources.BackgroudColor}"/>
         </Grid>
     </VerticalStackLayout>
    
